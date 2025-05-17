@@ -222,6 +222,12 @@ function initial() {
 
 //when user click on start button
 startButton.addEventListener("click", () => {
+    const userName = document.getElementById("user-name").value.trim();
+    if (!userName) {
+        alert("Please enter your name to start the quiz!");
+        return;
+    }
+    localStorage.setItem("quizUserName", userName);
     startScreen.classList.add("hide");
     displayContainer.classList.remove("hide");
     initial();

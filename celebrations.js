@@ -39,19 +39,20 @@ function getScoreCategory(score, total) {
 // Create and show end celebration
 function showEndCelebration(score, total) {
     const percentage = (score / total) * 100;
+    const userName = localStorage.getItem('quizUserName') || 'Friend';
     let message = '';
     
     if (percentage === 100) {
-        message = '🎉 PERFECT SCORE! You\'re Absolutely Brilliant! 🏆\n' +
+        message = `🎉 PERFECT SCORE, ${userName}! You're Brilliant! 🏆\n` +
                  'You\'re a True Champion! 🌟';
     } else if (percentage >= 80) {
-        message = '🎈 Outstanding Performance! 🌟\n' +
+        message = `🎈 Outstanding Performance, ${userName}! 🌟\n` +
                  'You\'re Almost Perfect! Keep Going! 🚀';
     } else if (percentage >= 60) {
-        message = '👏 Well Done! 🌟\n' +
+        message = `👏 Well Done, ${userName}! 🌟\n` +
                  'You\'re Making Great Progress! 📈';
     } else {
-        message = '💪 Keep Learning! 📚\n' +
+        message = `💪 Keep Learning, ${userName}! 📚\n` +
                  'Every Question Makes You Stronger!💡';
     }
     

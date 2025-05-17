@@ -22,26 +22,24 @@
   }
 
   .typewriter {
-    width: 17.5ch;
-    white-space: nowrap;
     overflow: hidden;
-    border-right: 4px solid #0a0a0a;
-    animation: cursor 1s step-start infinite, text 5s steps(18) alternate infinite;
+    border-right: .15em solid #ffffff;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+      typing 3.5s steps(40, end) forwards,
+      blink-caret .75s step-end 5;
   }
 
-  @keyframes cursor {
-    0%, 100% {
-      border-color: #0a0a0a;
-    }
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
   }
-
-  @keyframes text {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 17.5ch;
-    }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #ffffff }
   }
 
   .start-screen,
@@ -54,6 +52,48 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .start-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+  }
+
+  .name-input-container {
+    margin: 2em 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #user-name {
+    font-size: 1.2em;
+    padding: 0.8em 1.2em;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  #user-name::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  #user-name:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
   }
 
   button {
@@ -208,10 +248,22 @@
   }
 
   .celebration-message {
-    font-size: 1.8em;
+    font-size: clamp(1rem, 4vw, 1.8rem);
     text-align: center;
     margin-bottom: 1.5em;
     animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    padding: 0 1rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    .celebration-message {
+      font-size: 1rem;
+      margin-bottom: 1em;
+    }
+
+    #user-score {
+      font-size: 1.2em;
+    }
   }
 
   @keyframes bounceIn {
