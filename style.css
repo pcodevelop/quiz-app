@@ -132,7 +132,6 @@
     padding: 3.1em 1.8em;
     width: 90%;
     max-width: 37.5em;
-    margin: 1rem;
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -263,9 +262,8 @@
       margin-bottom: 10px;
     }
     #display-container {
-      width: calc(100% - 2rem);
+      width: 95%;
       padding: 1.5em 1em;
-      margin: 1rem;
       max-height: 90vh;
       overflow-y: auto;
     }
