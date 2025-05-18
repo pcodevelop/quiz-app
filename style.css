@@ -13,12 +13,13 @@
 
   .contain {
     margin-bottom: 15px;
-   display: flex;
-   justify-items: center;
-   align-items: center;
-   font-size: clamp(2rem, 2.8vw, 5rem);
-   font-family: roboto;
-   font-weight: bolder;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    font-family: roboto;
+    font-weight: bolder;
+    padding: 0 1rem;
   }
 
   .typewriter {
@@ -129,9 +130,9 @@
   #display-container {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 3.1em 1.8em;
-    width: 80%;
+    width: 90%;
     max-width: 37.5em;
-    margin: 0 auto;
+    margin: 1rem;
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -140,6 +141,7 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
   }
 
   .header {
@@ -255,10 +257,17 @@
     padding: 0 1rem;
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 768px) {
+    .contain {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 10px;
+    }
     #display-container {
-      width: 95%;
-      padding: 2em 1em;
+      width: calc(100% - 2rem);
+      padding: 1.5em 1em;
+      margin: 1rem;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     .celebration-message {
