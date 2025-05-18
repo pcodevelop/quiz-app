@@ -73,19 +73,43 @@ function showEndCelebration(score, total) {
 
 // Create confetti effect
 function createConfetti() {
-    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+    const colors = [
+        '#FF69B4', // Hot Pink
+        '#FFD700', // Gold
+        '#00CED1', // Dark Turquoise
+        '#FF6B6B', // Coral
+        '#4DE8D5', // Bright Cyan
+        '#FFA07A'  // Light Salmon
+    ];
     
-    for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.animationDelay = Math.random() * 3 + 's';
-        confetti.style.opacity = Math.random();
-        document.body.appendChild(confetti);
-        
-        // Remove confetti after animation
-        setTimeout(() => confetti.remove(), 5000);
+    // Create multiple bursts
+    for (let burst = 0; burst < 3; burst++) {
+        setTimeout(() => {
+            for (let i = 0; i < 40; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // Random color from our vibrant palette
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random movement variables
+                const angle = (i / 40) * 360 + Math.random() * 30;
+                const velocity = 30 + Math.random() * 30;
+                const tx = Math.cos(angle * Math.PI / 180) * velocity;
+                const ty = Math.sin(angle * Math.PI / 180) * velocity;
+                const rot = Math.random() * 720 - 360;
+                
+                // Set CSS variables for the animation
+                confetti.style.setProperty('--tx', `${tx}vh`);
+                confetti.style.setProperty('--ty', `${ty}vh`);
+                confetti.style.setProperty('--rot', `${rot}deg`);
+                
+                document.body.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => confetti.remove(), 1500);
+            }
+        }, burst * 300); // Stagger each burst
     }
 }
 
