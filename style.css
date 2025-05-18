@@ -256,6 +256,11 @@
   }
 
   @media screen and (max-width: 480px) {
+    #display-container {
+      width: 95%;
+      padding: 2em 1em;
+    }
+
     .celebration-message {
       font-size: 1rem;
       margin-bottom: 1em;
@@ -263,6 +268,19 @@
 
     #user-score {
       font-size: 1.2em;
+    }
+
+    .option-div {
+      padding: 0.8em;
+    }
+
+    .timer-div {
+      padding: 0.5em 1.2em;
+      width: 6.5em;
+    }
+
+    .header {
+      margin-bottom: 1.2em;
     }
   }
 
